@@ -1,0 +1,182 @@
+body {
+  background-color: #D5DCD5;
+  color: black;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  font-family: "Roboto Light", "Roboto", "Open Sans", "Helvetica Neue", Arial, sans-serif !important;
+  transition: color 0.15s ease-in-out, background 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+body * {
+  transition: background 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+body.light {
+  color: #101010;
+  background-color: #D5DCD5;
+}
+body.dark {
+  color: #f0f0f0;
+  background-color: #303030;
+}
+body.light form .form-control:focus {
+  border-color: #d9dadb;
+  box-shadow: 0 0 0 0.2rem rgba(217, 218, 219, 0.5);
+}
+body.dark form {
+  color: #f0f0f0;
+  background-color: #303030;
+}
+body.dark form .form-control:focus {
+  border-color: #d9dadb;
+  box-shadow: 0 0 0 0.2rem rgba(217, 218, 219, 0.5);
+}
+body.light .btn-primary {
+  color: #212529;
+  background-color: #D9DADB;
+  border-color: #D9DADB;
+}
+body.light .btn-primary:focus {
+  box-shadow: 0 0 0 0.2rem rgba(217, 218, 219, 0.5);
+}
+body.dark .btn-primary {
+  background-color: #343a40;
+  border-color: #343a40;
+}
+body.dark .btn-primary:focus {
+  box-shadow: 0 0 0 0.2rem rgba(52, 58, 64, 0.5);
+}
+
+header * {
+  transition: color 0.15s ease-in-out, background 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+header nav * {
+  transition: color 0.15s ease-in-out, background 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+header nav .navbar-brand {
+  min-width: 6rem !important;
+}
+body.light header nav {
+  background: linear-gradient(to right, #abbaab, white);
+}
+body.light header nav.navbar-light .navbar-brand {
+  color: #101010;
+}
+body.dark header nav.navbar-light .navbar-brand {
+  color: #f0f0f0;
+}
+body.dark header nav {
+  background: #121212;
+}
+body.light header nav * {
+  color: #101010;
+}
+body.dark header nav * {
+  color: #f0f0f0;
+}
+
+#brand-name {
+  -webkit-transition: opacity 0.25s ease-in-out;
+  -moz-transition: opacity 0.25s ease-in-out;
+  -ms-transition: opacity 0.25s ease-in-out;
+  -o-transition: opacity 0.25s ease-in-out;
+  transition: opacity 0.25s ease-in-out, color 0.15s ease-in-out;
+}
+#brand-name.op-0 {
+  opacity: 0;
+}
+#brand-name.op-1 {
+  opacity: 1;
+}
+
+main #main_content .card p {
+  font-family: "Lato", "Open Sans", "Helvetica Neue", Arial, sans-serif;
+}
+body.dark main .card {
+  background: #646464;
+}
+body.dark main .card .btn-primary {
+  background-color: #343a40;
+  border-color: #343a40;
+}
+body.dark main .card .btn-primary:focus {
+  box-shadow: 0 0 0 0.2rem rgba(52, 58, 64, 0.5);
+}
+body.dark main .card .form-control:focus {
+  border-color: #d9dadb;
+  box-shadow: 0 0 0 0.2rem rgba(217, 218, 219, 0.5);
+}
+body.light main .card {
+  background: white;
+}
+body.light main .card .btn-primary {
+  color: #212529;
+  background-color: #D9DADB;
+  border-color: #D9DADB;
+}
+body.light main .card .btn-primary:focus {
+  box-shadow: 0 0 0 0.2rem rgba(217, 218, 219, 0.5);
+}
+body.light main .card .form-control:focus {
+  border-color: #d9dadb;
+  box-shadow: 0 0 0 0.2rem rgba(217, 218, 219, 0.5);
+}
+
+#bug-container {
+  min-height: 4rem;
+}
+
+#bug {
+  cursor: grab;
+  transition: color 0.15s ease-in-out, transform 1s ease-in-out, font-size 0.25s ease-in-out;
+}
+#bug.rotate {
+  transform: rotate(360deg);
+}
+body.light #bug {
+  color: #101010;
+}
+body.dark #bug {
+  color: #f0f0f0;
+}
+
+a.link-white-with-hover {
+  color: white !important;
+  text-decoration: none;
+}
+a:hover.link-white-with-hover {
+  color: rgba(255, 255, 255, 0.7) !important;
+  text-decoration: none;
+}
+a:focus.link-white-with-hover {
+  text-decoration: none !important;
+  outline: none !important;
+  background-color: inherit !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+footer {
+  min-height: 5rem;
+  transition: color 0.15s ease-in-out;
+}
+body.light footer {
+  background: #abbaab;
+}
+body.dark footer {
+  background: #121212;
+}
+body.dark footer {
+  color: white;
+}
+body.light footer {
+  color: black;
+}
+
+input {
+  margin-bottom: 0.5rem;
+}
+input.wrong-input, input.wrong-input:focus {
+  box-shadow: 0 0 0 0.25rem rgba(225, 83, 97, 0.5) !important;
+}
+
+/*# sourceMappingURL=styles.css.map */
