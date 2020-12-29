@@ -3,59 +3,54 @@
 header('Content-type: application/json');
 
 // TODO: use MySQL instead
-$DB_blog = array(
+$DB = array(
     array(
         "id" => uniqid(),
         "header" => "Blog 1",
         "article_content" => "Blogs rule",
         "author" => "admin",
+        "type" => "blog",
     ),
     array(
         "id" => uniqid(),
         "header" => "Blog 2",
         "article_content" => "Blogs rule lots",
         "author" => "admin",
+        "type" => "blog",
     ),
     array(
         "id" => uniqid(),
-        "header" => "Blog 1",
+        "header" => "Blog 3",
         "article_content" => "Blogs rule",
         "author" => "admin",
+        "type" => "blog",
     ),
     array(
         "id" => uniqid(),
-        "header" => "Blog 2",
+        "header" => "Blog 4",
         "article_content" => "Blogs rule lots",
         "author" => "admin",
+        "type" => "blog",
     ),
-);
-
-$DB_bug = array(
     array(
         "id" => uniqid(),
         "header" => "Bug 1",
         "article_content" => "Bugs suck",
         "author" => "admin",
+        "type" => "bug",
     ),
     array(
         "id" => uniqid(),
         "header" => "Bug 2",
         "article_content" => "Bugs suck lots",
         "author" => "admin",
+        "type" => "bug",
     ),
 );
 
 
-
-
-$blog_data = $DB_blog;
-$bug_data = $DB_bug;
-
 $json_db = json_encode(
-    array(
-        "blog_data" => $blog_data,
-        "bug_data" => $bug_data,
-    ),
+    $DB,
     JSON_PRETTY_PRINT
 );
 file_put_contents('data.json', $json_db);

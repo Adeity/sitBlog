@@ -1,31 +1,10 @@
 <?php
+//  TODO: Put Regular Expressions into a library file rather than having them hard coded in each file
 $title = "Login";
 include("head.php");
+include("db_operations.php");
+include("utils.php");
 $_PAGE_TITLE = "Login";
-
-function get_user_by_email($email) {
-    $read_json = file_get_contents(__DIR__ . '/data_users.json');
-    $data = json_decode($read_json, JSON_OBJECT_AS_ARRAY);
-    foreach ($data as $user){
-        if ($user["email"] == $email){
-            return $user;
-        }
-    }
-    return false;
-}
-
-function array_get($key, $array, $default="") {
-    if (array_key_exists($key, $array)) {
-        return $array[$key];
-    }
-    else {
-        return $default;
-    }
-}
-
-function session_get($key, $default="") {
-    return array_get($key, $_SESSION, $default);
-}
 
 function unset_all_messages() {
     unset($_SESSION["error_code"]);
@@ -47,13 +26,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
     // Regexes for input values
     $re_email = '/^[a-zA-Z0-9][a-zA-Z0-9-_\.]*@[a-zA-Z0-9-_]+\.[a-zA-Z]{1,24}$/m';
-    $re_username = '/^\S*(?=\S{8,})(?=\S*[a-z])(?=\S*[A-Z])(?=\S*[\d])(?=\S*[\W])\S*$/m';
     $re_password = '/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/m';
 
     // Validate input
     $is_invalid_input = false;
     if (!preg_match($re_email, $email)){
-        $_SESSION["login_email_error"] = "Invalid email".preg_match($re_email, $email);;
+        $_SESSION["login_email_error"] = "Invalid email".preg_match($re_email, $email);
         $is_invalid_input = true;
     }
     if(!preg_match($re_password, $password)){
@@ -68,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
     // Get user by email
     $db_user = get_user_by_email($email);
-    if($db_user === false) {
+    if($db_user == true) {
         $_SESSION["message"] = "You entered wrong email and/or password.";
         header("Location: http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
         exit;
@@ -112,7 +90,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                             required=""
                             autofocus=""
                             name="email"
-                            value="<?php echo session_get("login_form_email"); ?>"
+                            value="<?php echo session_get("login_form_email");?>",
+                            pattern="^[a-zA-Z0-9][a-zA-Z0-9-_.]*@[a-zA-Z0-9-_]+.[a-zA-Z]{1,24}$"
                     >
                     <div class="invalid-feedback" id="invalid-email">
                         Please enter a valid email address.
@@ -125,6 +104,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                             placeholder="Password"
                             required=""
                             name="password"
+                            pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$"
                     >
                     <div class="invalid-feedback" id="invalid-password">
                         Password is atleast 8 characters long, must contain one of each characters: a-b, A-B, 0-9, special char.
@@ -155,8 +135,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 
 <script type="application/javascript">
-
-    $("#loginForm").submit(function(){
+    $("#loginForm").submit(function(event){
         $("#invalid-email").hide();
         $("#invalid-password").hide();
         //  Function returns and therefore prevents default:
@@ -186,26 +165,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             $("#invalid-password").show();
             isValid = false;
         }
-        return isValid;
+        if(!isValid){
+            event.preventDefault();
+        }
     });
-
-    // $('#loginForm').submit(function(e)  {
-    //     const regex = /^[a-zA-Z0-9][a-zA-Z0-9-_\.]*@[a-zA-Z0-9-_]+\.[a-zA-Z]{1,24}$/gm;
-    //     const str = $("input[name=email]").val();
-    //     let m;
-    //
-    //     while ((m = regex.exec(str)) !== null) {
-    //         // This is necessary to avoid infinite loops with zero-width matches
-    //         if (m.index === regex.lastIndex) {
-    //             regex.lastIndex++;
-    //         }
-    //
-    //         // The result can be accessed through the `m`-variable.
-    //         m.forEach((match, groupIndex) => {
-    //             console.log(`Found match, group ${groupIndex}: ${match}`);
-    //         });
-    //     }
-    //     return false;
-    // });
-
 </script>

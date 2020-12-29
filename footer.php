@@ -7,7 +7,7 @@
                 </div>
             </div>
             <div class="col d-flex justify-content-end">
-                <div class="form-check form-switch pt-4">
+                <div class="form-check form-switch pt-4 d-print-none">
                     <input class="form-check-input" type="checkbox" id="colorSwitchCheck" onclick="setColorMode()" <?php echo $checkbox_value ?>>
                     <label class="form-check-label" for="colorSwitchCheck" onclick="setColorMode()">Dark mode</label>
                 </div>

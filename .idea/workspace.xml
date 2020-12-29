@@ -21,7 +21,15 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager" selected="PHP Script.test.php">
+  <component name="RunManager" selected="PHP Script.db.php">
+    <configuration name="db.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/db.php">
+      <CommandLine>
+        <PhpTestInterpreterSettings>
+          <option name="interpreterName" value="PHP 7.4" />
+        </PhpTestInterpreterSettings>
+      </CommandLine>
+      <method v="2" />
+    </configuration>
     <configuration name="db_users.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/db_users.php">
       <CommandLine>
         <PhpTestInterpreterSettings>
@@ -56,6 +64,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="PHP Script.db.php" />
         <item itemvalue="PHP Script.test.php" />
         <item itemvalue="PHP Script.db_users.php" />
         <item itemvalue="PHP Script.login_page.php" />
@@ -73,7 +82,7 @@
       <updated>1609179936305</updated>
       <workItem from="1609179937372" duration="12145000" />
       <workItem from="1609226899117" duration="9853000" />
-      <workItem from="1609250057484" duration="13461000" />
+      <workItem from="1609250057484" duration="22938000" />
     </task>
     <servers />
   </component>
@@ -89,26 +98,26 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1061" y="455" key="FileChooserDialogImpl/0.0.2560.1400@0.0.2560.1400" timestamp="1609237836448" />
-    <state width="2517" height="400" key="GridCell.Tab.0.bottom" timestamp="1609238113767">
+    <state width="2517" height="400" key="GridCell.Tab.0.bottom" timestamp="1609275972402">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="400" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1609238113767" />
-    <state width="2517" height="400" key="GridCell.Tab.0.center" timestamp="1609238113767">
+    <state width="2517" height="400" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1609275972402" />
+    <state width="2517" height="400" key="GridCell.Tab.0.center" timestamp="1609275972402">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="400" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1609238113767" />
-    <state width="2517" height="400" key="GridCell.Tab.0.left" timestamp="1609238113767">
+    <state width="2517" height="400" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1609275972402" />
+    <state width="2517" height="400" key="GridCell.Tab.0.left" timestamp="1609275972401">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="400" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1609238113767" />
-    <state width="2517" height="400" key="GridCell.Tab.0.right" timestamp="1609238113767">
+    <state width="2517" height="400" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1609275972401" />
+    <state width="2517" height="400" key="GridCell.Tab.0.right" timestamp="1609275972402">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="400" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1609238113767" />
-    <state x="1117" y="624" key="NewPhpFileDialog" timestamp="1609187712024">
+    <state width="2517" height="400" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1609275972402" />
+    <state x="1117" y="624" key="NewPhpFileDialog" timestamp="1609272099365">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="1117" y="624" key="NewPhpFileDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1609187712024" />
+    <state x="1117" y="624" key="NewPhpFileDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1609272099365" />
     <state width="498" height="446" key="SwitcherDM" timestamp="1609252324917">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
