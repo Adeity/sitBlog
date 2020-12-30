@@ -16,7 +16,7 @@ include("db_operations.php");
                     </div>
                     <?php
                     echo '<p>You are logged out.</p>';
-                    echo '<a class="btn btn-primary" href="'.DOCUMENTROOT.'" role="button">Go back</a>';
+                    echo '<a class="btn btn-primary" href="'.base_path.'" role="button">Go back</a>';
                     ?>
                 </div>
             </div>

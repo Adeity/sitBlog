@@ -24,7 +24,6 @@ body.light form .form-control:focus {
 }
 body.dark form {
   color: #f0f0f0;
-  background-color: #303030;
 }
 body.dark form .form-control:focus {
   border-color: #d9dadb;
@@ -94,6 +93,9 @@ main #main_content .card p {
 body.dark main .card {
   background: #646464;
 }
+body.dark main .card#login {
+  background: #646464;
+}
 body.dark main .card .btn-primary {
   background-color: #343a40;
   border-color: #343a40;
@@ -106,6 +108,9 @@ body.dark main .card .form-control:focus {
   box-shadow: 0 0 0 0.2rem rgba(217, 218, 219, 0.5);
 }
 body.light main .card {
+  background: white;
+}
+body.light main .card#login {
   background: white;
 }
 body.light main .card .btn-primary {

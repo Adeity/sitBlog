@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("reload_cookie.php");
+include_once("reload_cookie.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">

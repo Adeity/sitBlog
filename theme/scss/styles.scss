@@ -44,7 +44,6 @@ body{
             box-shadow: 0 0 0 0.2rem rgba(217, 218, 219, 0.5);
         }
         color: #f0f0f0;
-        background-color: $dark-canvas;
     }
     &.light .btn-primary {
         color: #212529;
@@ -117,7 +116,9 @@ main{
     }
     body.dark & .card{
         background: #646464;
-
+        &#login{
+            background: #646464;
+        }
         & .btn-primary {
             background-color: #343a40;
             border-color: #343a40;
@@ -134,7 +135,9 @@ main{
     }
     body.light & .card{
         background: white;
-
+        &#login{
+            background: white;
+        }
         & .btn-primary {
             color: #212529;
             background-color: #D9DADB;
@@ -208,5 +211,9 @@ input{
     &.wrong-input, &.wrong-input:focus{
         box-shadow: 0 0 0 0.25rem rgba(225,83,97,.5)!important;
     }
+}
+
+card#login{
+
 }
 

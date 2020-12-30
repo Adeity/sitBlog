@@ -13,8 +13,9 @@
                 if (isset($_SESSION['logged_user'])){
                     echo '
                     <div class="d-flex flex-row"> 
-                        <span class=""><a href="create_article_page.php" class="text-decoration-none"> User: '.$_SESSION['logged_user'].'</a><a href="logout.php" class="text-decoration-none ms-4">Log out</a></span>
+                        <span class=""><span class="pe-3"> User: '.$_SESSION['logged_user'].'</span><a href="create_article_page.php" class="text-decoration-none">Create article</a><a href="logout.php" class="text-decoration-none ms-4">Log out</a></span>
                     </div>
+                    
                     ';
                 }
                 else{

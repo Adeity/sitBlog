@@ -1,3 +1,3 @@
 <?php
-define('DOCUMENTROOT', '/semestralka/');
+define('base_path', '/semestralka');
 ?>

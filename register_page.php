@@ -1,8 +1,8 @@
 <?php
 $title = "sitBlog"; include("head.php");
-include("topbar.php");
-include("db_operations.php");
-include("utils.php");
+include_once("topbar.php");
+include_once("db_operations.php");
+include_once("utils.php");
 $read_json = file_get_contents(__DIR__ . '/data_users.json');
 $data = json_decode($read_json, JSON_OBJECT_AS_ARRAY);
 $message = "";
@@ -23,9 +23,11 @@ function unset_all_messages() {
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     // input
-    $email = htmlspecialchars($_POST["email"]);
-    $username = htmlspecialchars($_POST["username"]);
+    $email = $_POST["email"];
+    $username = $_POST["username"];
     $password = $_POST["password"];
+
+    $_POST['csrfotken'] == $_SESSION['csrftoken'];
 
     // Save form values
     unset_all_messages();
@@ -121,6 +123,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                            value="<?php echo session_get("register_form_username");?>"
                            pattern="^[a-zA-Z0-9]*$"
                     >
+                    <input type="hidden" name="csrftoken" value="<?php $_SESSION['CSRFTOKEN'] ?>">
                     <div class="invalid-feedback" id="invalid-username">
                         Username can only contain characters a-b A-B and 0-9.
                     </div>

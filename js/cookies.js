@@ -45,7 +45,8 @@ function getColorValue(){
     return colorValue;
 }
 
-function setColorMode() {
+
+function setSkinMode() {
     n = getColorValue();
     cookieValue = getCookieValue("skin_cookie");
     if (cookieValue == null){

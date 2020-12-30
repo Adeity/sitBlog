@@ -1,9 +1,9 @@
 <?php
 //  TODO: Put Regular Expressions into a library file rather than having them hard coded in each file
 $title = "Login";
-include("head.php");
-include("db_operations.php");
-include("utils.php");
+include_once("head.php");
+include_once("db_operations.php");
+include_once("utils.php");
 $_PAGE_TITLE = "Login";
 
 function unset_all_messages() {
@@ -46,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
     // Get user by email
     $db_user = get_user_by_email($email);
-    if($db_user == true) {
+    if(!$db_user == true) {
         $_SESSION["message"] = "You entered wrong email and/or password.";
         header("Location: http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
         exit;
@@ -73,7 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 ?>
 <main class="container">
     <div class="d-flex justify-content-center">
-        <div class="card">
+        <div class="card" id="login">
             <div class="card-body">
                 <form method="post" action="login_page.php" class="form-signin mb-2" name="login" id="loginForm">
                     <div class="d-flex">

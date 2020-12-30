@@ -16,12 +16,8 @@ include("db_operations.php");
                     <div class="d-flex pb-2">
                         <i class="fas fa-bug fs-1 d-flex fa-align-start"></i>
                     </div>
-                    <?php
-                    if(isset($_SESSION["success_message"])){
-                        echo '<p>'.$_SESSION["success_message"].'</p>';
-                    }
-                    echo '<a class="btn btn-primary" href="'.base_path.'" role="button">Go back</a>';
-                    ?>
+                    <p>You created an article.</p>
+                    <a class="btn btn-primary" href="/semestralka" role="button">Go back</a>
                 </div>
             </div>
         </div>

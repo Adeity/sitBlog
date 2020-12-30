@@ -1,11 +1,14 @@
 <?php
 include 'db_operations.php';
 
-$name_plus_id = $_POST["delete"];
-$input_info = explode("+", $name_plus_id);
 
-$name = $input_info[0];
-$id = $input_info[1];
+$id = $_POST["id"];
+//TODO: is logged in? if not, return.
+//TODO: fetch article with id $id from DB
+//TODO: compare username from session with usernam from article. If no match, return.
+//TODO: refactor deleteData($name, $id) to deleteArticle($id)
+
+
 
 echo $name . $id;
 
