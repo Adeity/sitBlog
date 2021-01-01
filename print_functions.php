@@ -41,4 +41,33 @@ function printArticleByID($article_heading, $article_content, $article_author, $
         </div>
     <?php
 }
+
+function print_pagination($type, $page, $total_pages){
+    ?>
+    <nav class="d-flex justify-content-center" aria-label="pagination">
+        <ul class="pagination pagination-sm">
+            <?php
+            for($i = 0; $i < $total_pages; $i++){
+                if ($page == ($i+1)){
+                    $is_active = 'active';
+                }
+                else{
+                    $is_active = '';
+                }
+                echo '<li class="page-item '.$is_active.'">
+                        <a
+                           class="page-link"
+                           href="'.base_path.'?type='.$type.'&page='.($i+1).'"
+                           data-page="'.($i+1).'"
+                           data-type="'.$type.'"
+                           data-query="type='.$type.'&page='.($i+1).'"
+                           >'.($i+1).'
+                        </a>
+                      </li>';
+                }
+            ?>
+        </ul>
+    </nav>
+<?php
+}
 ?>

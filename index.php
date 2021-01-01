@@ -14,30 +14,22 @@ if(isset($_GET["type"])) {
 
 $page= null;
 if(isset($_GET["page"])) {
-    try{
-        $page = intval($_GET["page"]);
-    } catch (TypeError $e) {
-        $page = 1;
-    }
+    $page = $_GET["page"];
 
     //  page validation
-    if ($page > 200){
+    if ($page > 1000000){
         $page = 1;
     }
     // TODO: validate $page
 }
 
+
 $page_size= null;
 if(isset($_GET["page_size"])) {
-    $page_size = intval($_GET["page_size"]);
-    try{
-        $page_size = intval($_GET["page_size"]);
-    } catch (TypeError $e) {
-        $page_size = 10;
-    }
+    $page_size = $_GET["page_size"];
 
     //  page_size validation
-    if ($page_size > 200){
+    if ($page_size > 1000000){
         $page_size = 1;
     }
 }
@@ -70,24 +62,39 @@ if(isset($_GET["page_size"])) {
                             </label>
                         </div>
                         <button class="btn btn-primary mt-2" type="submit">Aplikovat filtr</button>
-                        <a href="?type=" class="btn btn-warning mt-2" id="deleteFilterButton" >Smazat filtr</a>
+                        <a href="?type="
+                           class="btn btn-warning mt-2"
+                           data-type=""
+                           data-page="1"
+                           id="deleteFilterButton">Smazat filtr</a>
                     </form>
-
                 </div>
             </div>
-
         </div>
-        <div class="col <?php if ($cookie_value == "light"){echo 'order-first';} else{echo 'order-last';} ?>" id="main_content">
-            <?php
+        <div class="col <?php if ($cookie_value == "light"){echo 'order-first';} else{echo 'order-last';}?>">
+            <div id="main_content">
+                <?php
                 renderArticles(
                     $type,
                     $page,
                     $page_size
                 );
-            ?>
-        </div>
-    </div>
+                ?>
+            </div>
+            <div id="pagination">
+                <?php
+                renderPagination(
+                    $type,
+                    $page,
+                    $page_size
+                );
+                ?>
+            </div>
 
+        </div>
+
+    </div>
+    <a href="" onclick="getSummary(event, 2)">asdasd</a>
 </main>
 <?php include("footer.php");?>
 
@@ -123,6 +130,38 @@ if(isset($_GET["page_size"])) {
         $('#radioBug2').prop('checked', false)
     }
 
-    $("form#formFilters").on('submit', function (event){event.preventDefault();});
-    $("#deleteFilterButton").on('click', function (event){event.preventDefault();});
+    function removeActive(){
+        $('li.page-item.active').each(function (){
+            $(this).removeClass("active");
+        })
+    }
+
+    $('a.page-link').each(function () {
+        var $this = $(this);
+        console.log($this);
+        $this.on("click", function (event)
+        {
+
+            removeActive();
+            $(this).parent().addClass("active");
+            console.log($this.data('query'));
+            event.preventDefault();
+            $.ajax({
+
+                type: "GET",
+                url: 'article_results.php',
+                data: $this.data('query'), // appears as $_GET @ your backend side
+            }).done(function(data) {
+                // data is ur summary
+                $('#main_content').html(data);
+                history.pushState({page: $this.data('page'), type: $this.data('type')}, "", '?page='+$this.data('page')+'&type='+$this.data('type'));
+                $('html, body').animate({scrollTop: 0}, 100);
+            });
+        });
+    });
+
+
+
+    // $("form#formFilters").on('submit', function (event){event.preventDefault();});
+    // $("#deleteFilterButton").on('click', function (event){event.preventDefault();});
 </script>

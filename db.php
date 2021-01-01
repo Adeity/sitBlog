@@ -48,10 +48,24 @@ $DB = array(
     ),
 );
 
+$DB_page_info = array(
+    "page" => "1",
+    "page_size" => "10",
+    "total_pages" => "10",
+    "total_articles" => "6"
+);
+
 
 $json_db = json_encode(
     $DB,
     JSON_PRETTY_PRINT
 );
 file_put_contents('data.json', $json_db);
+
+$json_db_page_info = json_encode(
+    $DB_page_info,
+    JSON_PRETTY_PRINT
+);
+file_put_contents('data_page_info.json', $json_db_page_info);
+
 echo $json_db;
