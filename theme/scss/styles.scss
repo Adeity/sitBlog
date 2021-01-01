@@ -27,10 +27,50 @@ body{
     &.light{
         color: #101010;
         background-color: #D5DCD5;
+
+        & li.page-item{
+            & a.page-link{
+                background: white;
+                border-color: #abbaab;
+                color: #101010;
+            }
+            & a.page-link:focus{
+                box-shadow: 0 0 0 0.25rem rgba(171, 186, 171 ,.25);
+            }
+        }
+        & li.page-item.active{
+            & a.page-link{
+                background: #abbaab;
+                border-color: #abbaab;
+                color: #101010;
+            }
+        }
     }
     &.dark{
         color: #f0f0f0;
         background-color: $dark-canvas;
+
+        & li.page-item{
+            & a.page-link{
+                background: #646464;
+                border-color: #121212;
+                color: #f0f0f0;
+            }
+            & a.page-link:focus{
+                box-shadow: 0 0 0 0.25rem rgba(18, 18, 18,.25);
+            }
+        }
+        & li.page-item.active{
+            & a.page-link{
+                background: #121212;
+                border-color: #121212;
+                color: #f0f0f0;
+            }
+        }
+
+        & li.page-link.active{
+            color: #f0f0f0;
+        }
     }
     &.light form{
         .form-control:focus{

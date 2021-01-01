@@ -61,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $db_user = get_user_by_email($email);
     if($db_user){
         $_SESSION["message"] = "Email already registered";
-        if($db_user[$username] == $username){
+        if($db_user["username"] == $username){
             $_SESSION["message"] = "Email and username already registered";
         }
         header("Location: http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
