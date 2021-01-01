@@ -8,5 +8,10 @@
         "email": "patrikpavelka01@gmail.com",
         "username": "admin1",
         "password": "$2y$10$\/RQ13MRt.3zxsqm9v4tSw.MkuaBwbcMA5dt8lTwKGfhOSJqceOmPq"
+    },
+    {
+        "email": "carl@gmail.com",
+        "username": "Carl",
+        "password": "$2y$10$\/RQ13MRt.3zxsqm9v4tSw.MkuaBwbcMA5dt8lTwKGfhOSJqceOmPq"
     }
 ]

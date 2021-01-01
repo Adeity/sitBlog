@@ -1,6 +1,6 @@
 <?php
-$title = "sitBlog"; include("head.php");
-include_once("topbar.php");
+session_start();
+include_once("reload_cookie.php");
 include_once("db_operations.php");
 include_once("utils.php");
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -39,8 +39,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         $article_author,
         $article_type
     );
-    header("Location: /semestralka/success_create_article.php");
+    header("Location: ".base_path."/success_create_article.php");
 }
+include_once("topbar.php");
 ?>
 
     <main class="container">
@@ -102,20 +103,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                 </div>
         </div>
     </main>
-<?php include("footer.php");?>
 
-<script type="application/javascript">
+<script>
+    //  Client side validation. User can post whatever he wants, just not empty heading or content.
     $("form[name=createArticleForm]").submit(function(event){
+        //  Set variable and remove class is-invalid if there is one
         articleHeading = $("textarea[name=article_heading]");
         articleHeadingValue = articleHeading.val();
         articleHeading.removeClass("is-invalid");
 
+        //  Set variable and remove class is-invalid if there is one
         articleContent = $("textarea[name=article_content]");
         articleContentValue = articleContent.val();
         articleContent.removeClass("is-invalid");
 
-        console.log(articleHeadingValue);
-
+        //  Is value empty? If so, !isValid
         var isValid = true;
         if (!articleHeadingValue){
             articleHeading.addClass("is-invalid");
@@ -130,3 +132,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         }
     });
 </script>
+<?php include("footer.php");?>
+

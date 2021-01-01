@@ -1,12 +1,10 @@
 <?php
-$title = "sitBlog"; include("head.php");
-include("topbar.php");
+session_start();
+include_once("reload_cookie.php");
 include("db_operations.php");
+include_once ("topbar.php");
 
-
-
-
-
+//  you get redirected to this site with different success messages
 ?>
 
     <main class="container">

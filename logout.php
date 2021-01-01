@@ -1,10 +1,13 @@
 <?php
-$title = "sitBlog"; include("head.php");
-include("topbar.php");
+session_start();
+include_once("reload_cookie.php");
 unset($_SESSION['logged_user']);
 session_destroy();
 
 include("db_operations.php");
+include_once ("topbar.php");
+
+//  you get redirected here if you logout
 ?>
 
     <main class="container">

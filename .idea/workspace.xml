@@ -20,15 +20,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aadfe9d8-6674-4f0c-bd8c-85a8f224cb5d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/article_results.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data_page_info.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/article_results.php" beforeDir="false" afterPath="$PROJECT_DIR$/article_results.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/constants.php" beforeDir="false" afterPath="$PROJECT_DIR$/constants.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/create_article_page.php" beforeDir="false" afterPath="$PROJECT_DIR$/create_article_page.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/data.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_users.json" beforeDir="false" afterPath="$PROJECT_DIR$/data_users.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.php" beforeDir="false" afterPath="$PROJECT_DIR$/db.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db_operations.php" beforeDir="false" afterPath="$PROJECT_DIR$/db_operations.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/delete_article.php" beforeDir="false" afterPath="$PROJECT_DIR$/delete_article.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/footer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/head.php" beforeDir="false" afterPath="$PROJECT_DIR$/head.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/print_article.php" beforeDir="false" afterPath="$PROJECT_DIR$/print_functions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/cookies.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/cookies.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login_page.php" beforeDir="false" afterPath="$PROJECT_DIR$/login_page.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logout.php" beforeDir="false" afterPath="$PROJECT_DIR$/logout.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/print_functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/print_functions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/register_page.php" beforeDir="false" afterPath="$PROJECT_DIR$/register_page.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reload_cookie.php" beforeDir="false" afterPath="$PROJECT_DIR$/reload_cookie.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/single_article.php" beforeDir="false" afterPath="$PROJECT_DIR$/single_article.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/success.php" beforeDir="false" afterPath="$PROJECT_DIR$/success.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/success_create_article.php" beforeDir="false" afterPath="$PROJECT_DIR$/success_create_article.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.php" beforeDir="false" afterPath="$PROJECT_DIR$/test.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/topbar.php" beforeDir="false" afterPath="$PROJECT_DIR$/topbar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +131,7 @@
       <workItem from="1609250057484" duration="23507000" />
       <workItem from="1609317135886" duration="27990000" />
       <workItem from="1609401765722" duration="11150000" />
-      <workItem from="1609501837625" duration="7534000" />
+      <workItem from="1609501837625" duration="16974000" />
     </task>
     <servers />
   </component>
@@ -168,10 +183,10 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.2560.1400@0.0.2560.1400" timestamp="1609346194331" />
-    <state x="986" y="433" width="589" height="534" key="find.popup" timestamp="1609426163181">
+    <state x="670" y="108" width="1061" height="891" key="find.popup" timestamp="1609527905265">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="986" y="433" width="589" height="534" key="find.popup/0.0.2560.1400@0.0.2560.1400" timestamp="1609426163181" />
+    <state x="670" y="108" width="1061" height="891" key="find.popup/0.0.2560.1400@0.0.2560.1400" timestamp="1609527905265" />
     <state x="937" y="331" key="run.anything.popup" timestamp="1609184885015">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>

@@ -45,6 +45,29 @@ function getColorValue(){
     return colorValue;
 }
 
+function toggleOrder(){
+    filtersCol = document.querySelector("#filters");
+    maincontentCol = document.querySelector("#col-containing-main-content");
+    if(filtersCol.classList.contains("order-first") && maincontentCol.classList.contains("order-last")){
+        //  Change order of filters column
+        filtersCol.classList.remove("order-first");
+        filtersCol.classList.add("order-last");
+
+        //  Change order or main_content column
+        maincontentCol.classList.remove("order-last");
+        maincontentCol.classList.add("order-first");
+    }
+    else{
+        //  Change order of filters column
+        filtersCol.classList.remove("order-last");
+        filtersCol.classList.add("order-first");
+
+        //  Change order or main_content column
+        maincontentCol.classList.remove("order-first");
+        maincontentCol.classList.add("order-last");
+    }
+}
+document.querySelector("#colorSwitchCheck").addEventListener('click', toggleOrder);
 
 function setSkinMode() {
     n = getColorValue();

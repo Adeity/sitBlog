@@ -1,13 +1,13 @@
 <?php
-
-$title = "Article"; include("head.php");
-include("topbar.php");
+session_start();
+include_once("reload_cookie.php");
 include("db_operations.php");
 
+//  is GET is set, render article with id
 if(isset($_GET["id"])){
     $id = $_GET["id"];
 }
-
+include_once ("topbar.php");
 ?>
 
     <main class="container">

@@ -1,12 +1,15 @@
-
+<?php
+$title = "sitBlog"; include("head.php");
+//  Topbar. If user is logged, echo username and link to create article page.
+?>
 <header class="mb-4">
     <nav class="navbar navbar-expand-lg navbar-light shadow">
         <div class="container">
-            <a class="navbar-brand" href="http://zwa.local:8080/semestralka">
+            <a class="navbar-brand" href="<?php echo base_path ?>">
                 <i class="fas fa-bug"></i>
                 sitBlog
             </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <?php

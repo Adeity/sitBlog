@@ -6,5 +6,5 @@
 //echo htmlspecialchars("#");
 $s = '';
 if (!$s){
-    echo "fuck me in the ass";
+    echo "";
 }

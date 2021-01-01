@@ -1,6 +1,9 @@
 <?php
 include_once("db_operations.php");
 
+//  Echoes ONLY article results, not whole HTML with head and so on. This is used for AJAX.
+
+//  Value validation, whitelisting, default values. Via index.php
 $type = null;
 if(isset($_GET["type"])) {
     $type = $_GET["type"];
@@ -17,7 +20,6 @@ if(isset($_GET["page"])) {
     if ($page > 1000000){
         $page = 1;
     }
-    // TODO: validate $page
 }
 
 

@@ -1,16 +1,13 @@
 <?php
-$title = "sitBlog"; include("head.php");
-include_once("topbar.php");
+session_start();
+include_once("reload_cookie.php");
 include_once("db_operations.php");
 include_once("utils.php");
 $read_json = file_get_contents(__DIR__ . '/data_users.json');
 $data = json_decode($read_json, JSON_OBJECT_AS_ARRAY);
 $message = "";
 
-
-
-
-
+//  unset all messaged via login page
 function unset_all_messages() {
     unset($_SESSION["error_code"]);
     unset($_SESSION["register_email_error"]);
@@ -27,7 +24,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $username = $_POST["username"];
     $password = $_POST["password"];
 
-    $_POST['csrfotken'] == $_SESSION['csrftoken'];
 
     // Save form values
     unset_all_messages();
@@ -61,6 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         exit;
     }
 
+    //  check if email is already registered
     $db_user = get_user_by_email($email);
     if($db_user){
         $_SESSION["message"] = "Email already registered";
@@ -71,6 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         exit;
     }
 
+    //  check if username is taken
     $db_user = get_user_by_username($username);
     if($db_user){
         $_SESSION["message"] = "Username already registered";
@@ -82,9 +80,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $pwd_hashed = password_hash($password, PASSWORD_DEFAULT);
     add_user_to_database($email, $username, $pwd_hashed);
     $_SESSION["success_message"] = "Registration successful.";
-    header("Location: /semestralka/success.php");
+    header("Location: ".base_path."/success.php");
 
 }
+include_once ("topbar.php");
 ?>
 
 
@@ -118,7 +117,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                            class="form-control <?php if(session_get("register_username_error", false)){echo ' is-invalid';}?>"
                            placeholder="Username"
                            required=""
-                           autofocus=""
                            name="username"
                            value="<?php echo session_get("register_form_username");?>"
                            pattern="^[a-zA-Z0-9]*$"
@@ -153,17 +151,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         ?></div>
 </main>
 
-
-<?php
-include("footer.php");
-unset_all_messages();
-?>
-<script type="application/javascript">
+<script>
+    //  frontend validation
     $("#registerForm").submit(function(event){
+        //  hide error messages
         $("#invalid-email").hide();
         $("#invalid-username").hide();
         $("#invalid-password").hide();
-        //  Function returns and therefore prevents default:
+
+        //  is this is true form gets sent
         var isValid = true;
 
         //  Set RegexExpressions
@@ -182,6 +178,7 @@ unset_all_messages();
         inputPassword.removeClass("is-invalid");
         inputPasswordValue = inputPassword.val();
 
+        //  test regular expressions
         if (!reEmail.test(inputEmailValue)){
             console.log(inputEmailValue)
             inputEmail.addClass("is-invalid");
@@ -205,5 +202,10 @@ unset_all_messages();
         }
     });
 </script>
+<?php
+include("footer.php");
+unset_all_messages();
+?>
+
 
 

@@ -1,11 +1,11 @@
 <?php
-//  TODO: Put Regular Expressions into a library file rather than having them hard coded in each file
-$title = "Login";
-include_once("head.php");
+session_start();
+include_once("reload_cookie.php");
 include_once("db_operations.php");
 include_once("utils.php");
 $_PAGE_TITLE = "Login";
 
+//  function that unsets all error and success messages. Gets at start of php code and at the very end of html serving.
 function unset_all_messages() {
     unset($_SESSION["error_code"]);
     unset($_SESSION["login_email_error"]);
@@ -14,11 +14,11 @@ function unset_all_messages() {
     unset($_SESSION["login_form_email"]);
 }
 
-
+//  is method post? if so, proceed
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     // input
-    $email = htmlspecialchars($_POST["email"]);
-    $password = htmlspecialchars($_POST["password"]);
+    $email = $_POST["email"];
+    $password = $_POST["password"];
 
     // Save form values
     unset_all_messages();
@@ -31,10 +31,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     // Validate input
     $is_invalid_input = false;
     if (!preg_match($re_email, $email)){
+        //  for validation. if is set, let user know by setting class, via php echo in html code
         $_SESSION["login_email_error"] = "Invalid email".preg_match($re_email, $email);
         $is_invalid_input = true;
     }
     if(!preg_match($re_password, $password)){
+        //  for validation. if is set, let user know by setting class, via php echo in html code
         $_SESSION["login_password_error"] = "Invalid password";
         $is_invalid_input = true;
     }
@@ -62,15 +64,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     // Log in!
     $username = $db_user["username"];
     $_SESSION['logged_user'] = $username;
-    $_SESSION["message"] = "You are now logged in. Welcome ".$username.".";
-    header("Location: /semestralka/success.php");
+    $_SESSION["success_message"] = "You are now logged in. Welcome ".$username.".";
+    header("Location: ".base_path."/success.php");
 }
+include_once("topbar.php");
 ?>
 
-<?php
-
-    include("topbar.php");
-?>
 <main class="container">
     <div class="d-flex justify-content-center">
         <div class="card" id="login">
@@ -82,6 +81,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                     <h1 class="h3 mb-3 font-weight-normal">Sign in <?php echo session_get("login_email_error", ""); ?></h1>
 
                     <label for="inputEmail" class="sr-only">Email address</label>
+                    <!--  If email is stored (and valid), echo it into form for user-->
+                    <!--  Class is-invalid gets set if input was invalid-->
                     <input
                             type="text"
                             id="inputEmail"
@@ -90,7 +91,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                             required=""
                             autofocus=""
                             name="email"
-                            value="<?php echo session_get("login_form_email");?>",
+
+                            value="<?php echo session_get("login_form_email");?>"
                             pattern="^[a-zA-Z0-9][a-zA-Z0-9-_.]*@[a-zA-Z0-9-_]+.[a-zA-Z]{1,24}$"
                     >
                     <div class="invalid-feedback" id="invalid-email">
@@ -127,18 +129,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     </div>
 
 </main>
-
-<?php
-    include("footer.php");
-    unset_all_messages();
-?>
-
-
-<script type="application/javascript">
+<script>
+    //  frontend validation using regex
     $("#loginForm").submit(function(event){
         $("#invalid-email").hide();
         $("#invalid-password").hide();
-        //  Function returns and therefore prevents default:
+
+        //  if this stays true, form gets sent
         var isValid = true;
 
         //  Set RegexExpressions
@@ -153,6 +150,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         inputPassword.removeClass("is-invalid");
         inputPasswordValue = inputPassword.val();
 
+        //  test regex, if doesnt pass then is invalid
         if (!reEmail.test(inputEmailValue)){
             console.log(inputEmailValue)
             inputEmail.addClass("is-invalid");
@@ -170,3 +168,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         }
     });
 </script>
+<?php
+    include("footer.php");
+    unset_all_messages();
+?>
+
+

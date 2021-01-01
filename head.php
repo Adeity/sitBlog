@@ -1,10 +1,9 @@
 <?php
-session_start();
-include_once("reload_cookie.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!--    I use Bootstrap, Google font and Jquery cdn. Font awesome is downloaded and served from server-->
     <meta charset="UTF-8">
     <title><?php echo $title;?></title>
     <link rel="icon" type="image/png" href="theme/pix/favicon.svg"/>
@@ -15,5 +14,7 @@ include_once("reload_cookie.php");
     <link href="theme/fontawesome/css/all.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="theme/scss/styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/main.js"></script>
 </head>
+<!--This is for remembering skin mode. Via reload_cookies.php-->
 <body class="<?php echo $cookie_value?>">
