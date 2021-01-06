@@ -1,4 +1,11 @@
 <?php
+/**
+ * Index page
+ *
+ * Get parameters get somewhat validated here and render functions get called based on these parameters
+ *
+ */
+
 //  Include important files and start session
 session_start();
 include_once("reload_cookie.php");

@@ -1,8 +1,8 @@
+//  set body and skin mode checker variables
 var documentBody = document.querySelector("body");
 var colorSwitchCheck = document.querySelector("#colorSwitchCheck");
 
-
-
+//  sets positive or negative time based on input parameter
 function setTime(n){
     var now = new Date();
     var time = now.getTime();
@@ -16,6 +16,7 @@ function setTime(n){
     return now;
 }
 
+//  creates cookie of name and value
 function createCookie(name, value){
     var time = setTime(1);
     document.cookie =
@@ -23,18 +24,22 @@ function createCookie(name, value){
         '; expires=' + time.toUTCString();
 }
 
+//  deletes cookie of name
 function deleteCookie(name){
+    //  sets negative time
     var time = setTime(0);
     document.cookie =
         name + '=' + 0 +
         '; expires=' + time.toUTCString();
 }
 
+//  reads cookie value based on name of cookie
 function getCookieValue(name){
     cookieValue = (document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)')[2]);
     return cookieValue;
 }
 
+//  gets color value based on wheter skin mode checker is checked or not
 function getColorValue(){
     if(colorSwitchCheck.checked){
         colorValue = 1;
@@ -45,6 +50,7 @@ function getColorValue(){
     return colorValue;
 }
 
+//  changes order on mainpage
 function toggleOrder(){
     filtersCol = document.querySelector("#filters");
     maincontentCol = document.querySelector("#col-containing-main-content");
@@ -69,6 +75,7 @@ function toggleOrder(){
 }
 document.querySelector("#colorSwitchCheck").addEventListener('click', toggleOrder);
 
+//  changes skin mode
 function setSkinMode() {
     n = getColorValue();
     cookieValue = getCookieValue("skin_cookie");
@@ -77,22 +84,6 @@ function setSkinMode() {
     }
     else if(cookieValue > n || cookieValue < n){
         createCookie(name = "skin_cookie", value = n);
-    }
-    if (n < 1){
-        documentBody.classList="light";
-    }
-    else {
-        documentBody.classList="dark";
-    }
-}
-
-function setBrandName() {
-    brandValue = getCookieValue("brand_cookie");
-    if (brandValue == null){
-        createCookie(name = "brand_cookie", value = n);
-    }
-    else if(brandValue > n || brandValue < n){
-        createCookie(name = "brand_cookie", value = n);
     }
     if (n < 1){
         documentBody.classList="light";

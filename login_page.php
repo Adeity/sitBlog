@@ -14,6 +14,12 @@ function unset_all_messages() {
     unset($_SESSION["login_form_email"]);
 }
 
+if(isset($_SESSION["logged_user"])){
+    $_SESSION["success_message"] = "You are already logged in.";
+    header("Location: ".base_path."/success.php");
+    exit;
+}
+
 //  is method post? if so, proceed
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     // input
@@ -91,7 +97,6 @@ include_once("topbar.php");
                             required=""
                             autofocus=""
                             name="email"
-
                             value="<?php echo session_get("login_form_email");?>"
                             pattern="^[a-zA-Z0-9][a-zA-Z0-9-_.]*@[a-zA-Z0-9-_]+.[a-zA-Z]{1,24}$"
                     >
@@ -110,11 +115,6 @@ include_once("topbar.php");
                     >
                     <div class="invalid-feedback" id="invalid-password">
                         Password is atleast 8 characters long, must contain one of each characters: a-b, A-B, 0-9, special char.
-                    </div>
-                    <div class="checkbox mb-2">
-                        <label>
-                            <input type="checkbox" value="remember-me"> Remember me
-                        </label>
                     </div>
                     <button class="btn btn-primary btn-block" type="submit">Sign in</button>
                 </form>

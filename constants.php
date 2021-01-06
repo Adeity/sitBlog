@@ -1,4 +1,9 @@
 <?php
-//  Base path is defined here for easy use
+/**
+ * Defines basepath.
+ *
+ * Defines basepath for easy change of href attribute on deployment.
+ *
+ */
 define('base_path', '/~pavelpa2/semestralka');
 ?>

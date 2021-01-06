@@ -1,4 +1,10 @@
 <?php
+/**
+ * Register page.
+ *
+ * Php code validates input from form using regex testing. It sets error or succes messeges depending on input.
+ *
+ */
 session_start();
 include_once("reload_cookie.php");
 include_once("db_operations.php");
@@ -8,6 +14,7 @@ $data = json_decode($read_json, JSON_OBJECT_AS_ARRAY);
 $message = "";
 
 //  unset all messaged via login page
+
 function unset_all_messages() {
     unset($_SESSION["error_code"]);
     unset($_SESSION["register_email_error"]);
@@ -16,6 +23,12 @@ function unset_all_messages() {
     unset($_SESSION["message"]);
     unset($_SESSION["register_form_email"]);
     unset($_SESSION["register_form_username"]);
+}
+
+if(isset($_SESSION["logged_user"])){
+    $_SESSION["success_message"] = "You are already registered.";
+    header("Location: ".base_path."/success.php");
+    exit;
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -152,7 +165,12 @@ include_once ("topbar.php");
 </main>
 
 <script>
-    //  frontend validation
+    /**
+     * Register page frontend validation.
+     *
+     * Validates using regex testing and if regex doesnt pass then sets class of input form to invalid (adds red border).
+     *
+     */
     $("#registerForm").submit(function(event){
         //  hide error messages
         $("#invalid-email").hide();

@@ -53,6 +53,6 @@ include_once("topbar.php");
 <?php
 include("footer.php");
 //  Delete error message. Dont show on reload.
-$_SESSION["delete_error_message"] = "";
+unset($_SESSION["delete_error_message"]);
 ?>
 

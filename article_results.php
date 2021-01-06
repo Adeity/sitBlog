@@ -1,7 +1,11 @@
 <?php
+/**
+ * Echo article results.
+ *
+ * Echoes ONLY article results, not whole HTML with head and so on. This is used for AJAX.
+ *
+ */
 include_once("db_operations.php");
-
-//  Echoes ONLY article results, not whole HTML with head and so on. This is used for AJAX.
 
 //  Value validation, whitelisting, default values. Via index.php
 $type = null;

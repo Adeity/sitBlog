@@ -50,7 +50,7 @@ function deleteArticle($id){
 //  adds user to databes with before validated parameters
 function add_user_to_database($email, $username, $password){
     //  read db and put into variable
-    $read_json = file_get_contents(__DIR__ . '/data.json');
+    $read_json = file_get_contents(__DIR__ . '/data_users.json');
     $data = json_decode($read_json, JSON_OBJECT_AS_ARRAY);
 
     //  create array from input variables

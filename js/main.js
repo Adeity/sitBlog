@@ -11,6 +11,5 @@ function include(file) {
 
 include("js/cookies.js");
 include("js/bug_animation.js");
-include("js/prompt.js");
 
 
