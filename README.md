@@ -17,4 +17,9 @@ Web application sitBlog is a blog for registered users. Users can write blogs of
 ## Implementation
 For server-side I used PHP without any framework. On frontend I used HTML and SCSS compilation to css. I've also used Bootstrap framework and JQuery libraries with JavaScript.
 
-#### PHP
+I use AJAX to load blog article header on homepage. So when clicking on pagination, the site doesn't reload as a whole. Only blog results get updated. 
+
+For CSS I work mainly with flexbox. That is also given because of Bootstrap 5 library. 
+
+JavaScript handles changing of dark and light mode and that a cookie remembers this setting. You are also able to rotate the bug in footer of the site. JS changes classes of this bug and CSS handles the animations.
+
